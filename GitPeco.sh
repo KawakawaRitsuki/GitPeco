@@ -1,14 +1,14 @@
-echo "      _____"
-echo "     / ____\\"
-echo "    / / ___"
-echo "   / / /__ \\"
-echo "   \ \___/ /"
-echo "    \_____/it"
-echo "    / ___ \\"
-echo "   / /__/ /"
-echo "  / _____/"
-echo " / /"
-echo "/_/eco"
+#echo "      _____"
+#echo "     / ____\\"
+#echo "    / / ___"
+#echo "   / / /__ \\"
+#echo "   \ \___/ /"
+#echo "    \_____/it"
+#echo "    / ___ \\"
+#echo "   / /__/ /"
+#echo "  / _____/"
+#echo " / /"
+#echo "/_/eco"
 
 
 GIT_COMMAND=$(echo "status\n
@@ -39,11 +39,25 @@ if [ $GIT_COMMAND = "commit" ]; then
   echo "Git Commit"
   echo
   echo "Commit Type:"$COMMIT_TYPE
-  printf "Commit Message:"
-  read -s val1
-  echo
 
-  git commit -m "[modify]$val1"
+  printf "Commit Title:"
+  read -s COMMIT_TITLE
+
+  MESSAGE="-m "[$COMMIT_TYPE]$COMMIT_TITLE""
+  
+  FOR_I=1
+  printf "Commit Message:1:"
+  
+  while read line
+  do
+    if [ "$line" = "" ]; then
+      break
+    fi
+    MESSAGE+=" -m "$line""
+    printf "Commit Message:$FOR_I:"
+  done
+
+  git commit $MESSAGE
 
 # 空行で終了とかでいいかも
 else
