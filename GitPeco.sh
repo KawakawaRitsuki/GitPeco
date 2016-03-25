@@ -63,7 +63,6 @@ if [ $GIT_COMMAND = "commit" ]; then
   
   git commit $MESSAGE
 
-# 空行で終了とかでいいかも
 else
   echo
 fi
