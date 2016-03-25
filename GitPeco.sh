@@ -41,7 +41,7 @@ if [ $GIT_COMMAND = "commit" ]; then
   echo "Commit Type:"$COMMIT_TYPE
 
   printf "Commit Title:"
-  read -s COMMIT_TITLE
+  read COMMIT_TITLE
 
   MESSAGE="-m "[$COMMIT_TYPE]$COMMIT_TITLE""
   
@@ -53,7 +53,11 @@ if [ $GIT_COMMAND = "commit" ]; then
     if [ "$line" = "" ]; then
       break
     fi
+    if [ "$FOR_I" = "1" ]; then
+      MESSAGE+=" -m """
+    fi
     MESSAGE+=" -m "$line""
+    FOR_I++
     printf "Commit Message:$FOR_I:"
   done
 
