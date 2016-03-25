@@ -54,14 +54,14 @@ if [ $GIT_COMMAND = "commit" ]; then
       break
     fi
     if [ "$FOR_I" = "1" ]; then
-      MESSAGE+=' -m ""'
+      MESSAGE+=" -m ''"
     fi
-    MESSAGE+=' -m "$line"'
+    MESSAGE+=" -m '$line'"
     FOR_I=`expr $FOR_I + 1`
     printf "Commit Message:$FOR_I:"
   done
   
-  echo "git commit $MESSAGE"
+  git commit $MESSAGE
 
 # 空行で終了とかでいいかも
 else
