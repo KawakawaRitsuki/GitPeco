@@ -2,14 +2,16 @@ GIT_COMMAND=$(echo "status\nadd\ncommit\npush\npull\nclone\nbranch\nmerge\nrebas
 
 if [ $GIT_COMMAND = "commit" ]; then
   COMMIT_TYPE=$(echo "fix\nadd\nmodify" | peco)
-  echo ""
+  echo
   echo "Git Commit"
-  echo ""
+  echo
   echo "Commit Type:"$COMMIT_TYPE
   printf "Commit Message:"
   read val1
+  echo
 
-  git commit -m \"[$COMMIT_TYPE]$val1\"
+  #git commit -m \"[$COMMIT_TYPE]$val1\"
+  echo "git commit -m \"[$COMMIT_TYPE]$val1\""
 
 # 空行で終了とかでいいかも
 else
