@@ -43,7 +43,7 @@ if [ $GIT_COMMAND = "commit" ]; then
   printf "Commit Title:"
   read COMMIT_TITLE
 
-  MESSAGE="-m "[$COMMIT_TYPE]$COMMIT_TITLE""
+  MESSAGE='-m "[$COMMIT_TYPE]$COMMIT_TITLE"'
   
   FOR_I=1
   printf "Commit Message:1:"
@@ -54,13 +54,13 @@ if [ $GIT_COMMAND = "commit" ]; then
       break
     fi
     if [ "$FOR_I" = "1" ]; then
-      MESSAGE+=" -m """
+      MESSAGE+=' -m ""'
     fi
-    MESSAGE+=" -m "$line""
-    FOR_I++
+    MESSAGE+=' -m "$line"'
+    FOR_I=`expr $FOR_I + 1`
     printf "Commit Message:$FOR_I:"
   done
-
+  
   git commit $MESSAGE
 
 # 空行で終了とかでいいかも
