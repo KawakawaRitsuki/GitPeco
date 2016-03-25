@@ -10,8 +10,10 @@ if [ $GIT_COMMAND = "commit" ]; then
   read val1
   echo
 
-  #git commit -m \"[$COMMIT_TYPE]$val1\"
-  echo "git commit -m \"[$COMMIT_TYPE]$val1\""
+  echo $val1
+
+  git commit -m \"[$COMMIT_TYPE]$val1\"
+  #echo "git commit -m \"[$COMMIT_TYPE]$val1\""
 
 # 空行で終了とかでいいかも
 else
