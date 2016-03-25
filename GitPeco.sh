@@ -12,7 +12,7 @@ if [ $GIT_COMMAND = "commit" ]; then
 
   echo $val1
 
-  git commit -m \"[$COMMIT_TYPE]$val1\"
+  git commit -m "[modify]test commit"
   #echo "git commit -m \"[$COMMIT_TYPE]$val1\""
 
 # 空行で終了とかでいいかも
