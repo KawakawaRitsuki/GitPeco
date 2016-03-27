@@ -54,9 +54,8 @@ if [ $GIT_COMMAND = "commit" ]; then
       break
     fi
     if [ "$FOR_I" = "1" ]; then
-      MESSAGE+=" -m ''"
+      MESSAGE+=" -m \"\""
     fi
-    LINEA=$(echo $line | tr -d \n)
     MESSAGE+=" -m $LINEA"
     FOR_I=`expr $FOR_I + 1`
     printf "Commit Message:$FOR_I:"
