@@ -43,11 +43,11 @@ if [ $GIT_COMMAND = "commit" ]; then
   printf "Commit Title:"
   read COMMIT_TITLE
 
-  MESSAGE="-m '[$COMMIT_TYPE]$COMMIT_TITLE'"
-  
+  MESSAGE="-m [$COMMIT_TYPE]$COMMIT_TITLE"
+
   FOR_I=1
   printf "Commit Message:1:"
-  
+
   while read line
   do
     if [ "$line" = "" ]; then
@@ -60,7 +60,7 @@ if [ $GIT_COMMAND = "commit" ]; then
     FOR_I=`expr $FOR_I + 1`
     printf "Commit Message:$FOR_I:"
   done
-  
+
   git commit $MESSAGE
 
 else
@@ -83,7 +83,7 @@ if [ $GIT_COMMAND = "add" ]; then
     ADD_FILE=$(ls | peco)
     git add $ADD_FILE
   fi
-  
+
 fi
 
 if [ $GIT_COMMAND = "push" ]; then
