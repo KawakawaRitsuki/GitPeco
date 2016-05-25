@@ -113,7 +113,3 @@ fi
 if [ $GIT_COMMAND = "help" ]; then
   git --help
 fi
-
-if [ $GIT_COMMAND = "init" ]; then
-  gip init
-fi
